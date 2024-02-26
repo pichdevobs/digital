@@ -25,7 +25,7 @@ pipeline {
         stage('Execute deployment script') {
             steps {
                 echo "Step 3: Starting deployment script ..."
-                sh 'ssh root@172.31.20.238 /opt/myscripts/deploydigital.sh'
+                sh 'ssh root@172.31.26.159 /opt/myscripts/deploydigital.sh'
             }
         }
     }

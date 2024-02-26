@@ -17,7 +17,7 @@ pipeline {
                         echo "Logging into Docker registry..."
                         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                         echo "Pushing Docker image to registry..."
-                        docker docker push pichhub/digital:latest
+                        docker push pichhub/digital:latest
                     '''
                 }
             }

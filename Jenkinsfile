@@ -12,7 +12,7 @@ pipeline {
         stage('Push Docker to Registry') {
             steps {
                 echo "Step 2: Push image to registry ..."
-                withCredentials([usernamePassword(credentialsId: 'MyCredential', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'CredentialDockerHub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo "Logging into Docker registry..."
                         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
@@ -25,11 +25,35 @@ pipeline {
         stage('Execute deployment script') {
             steps {
                 echo "Step 3: Starting deployment script ..."
-                sh 'ssh root@172.31.26.159 /opt/myscripts/deploy.sh'
+                sh 'ssh root@172.31.20.238 /opt/myscripts/deploydigital.sh'
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
